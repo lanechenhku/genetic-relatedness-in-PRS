@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=2
+#PBS -l mem=1gb
+#PBS -l walltime=60:00:00
+#PBS -m abe
+#PBS -q small_ext
+#PBS -N block
+module load plink
+cd /psychipc01/disk3/data/UKBB/data/genotype/imputed_0.01
+
+plink --bfile  maf_0.01_1 --chr 1 --from-bp 10583 --to-bp 1892607 --make-bed --out /home/unfated/chr1_block/imputed_block_1
